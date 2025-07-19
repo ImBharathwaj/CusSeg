@@ -1,0 +1,14 @@
+FROM hseeberger/scala-sbt:11.0.7_1.3.13_2.12.12 AS builder
+
+WORKDIR /app
+COPY . .
+
+RUN sbt clean assembly
+
+FROM eclipse-temurin:17-jre-focal
+WORKDIR /app
+
+# Copy the fat jar from the build stage
+COPY --from=builder /app/target/scala-3.7.1/*.jar /app/app.jar
+
+CMD ["java", "-jar", "/app/app.jar"]

@@ -1,0 +1,56 @@
+1. Planning & Requirements
+
+    Define MVP scope: List the core backend features you’ll build first (ingestion, storage, validation).
+
+    Select key data types and sources: Such as JSON, CSV, API payloads, and webhooks.
+
+    Map data flows: Use simple bullet points or diagrams to clarify how data moves from ingestion to storage.
+
+    Decide the stack: Scala (with frameworks like Akka HTTP, Play Framework, or http4s), Kafka (for streaming), MongoDB/Cassandra, and S3 for storage are popular and proven choices with Scala.
+
+    Compliance: Write out basic privacy/consent needs if required.
+
+2. Environment & Repository Setup
+
+    Version control: Initialize a GitHub/GitLab repo.
+
+    Directory structure: Organize code (e.g., src/main/scala/, test/, config/).
+
+    Setup dev environment: Get SBT (Scala Build Tool), Docker, and Scala 2.13/3.x environment ready.
+
+    Cloud storage: Create and configure a bucket on S3 (or similar) to store ingested data.
+
+3. Core Ingestion API Development
+
+    API specification: Draft endpoint specs (e.g., POST /ingest) for receiving JSON, CSV, or webhook data.
+
+    Project scaffold: Use SBT and your chosen framework (Akka HTTP or Play) for project setup.
+
+    REST endpoint: Implement HTTP endpoint to accept:
+
+        Raw JSON
+
+        File uploads (handle multipart for CSV)
+
+        Webhook events (simple POSTs)
+
+    Validation: Check payload type, basic structure, and size limits.
+
+    Logging: Log every accepted or failed request (either to file or a simple DB).
+
+4. Storage Connection
+
+    Integrate S3/cloud bucket: Use a Scala-compatible S3 client (e.g., AWS Java SDK) to upload raw data.
+
+    Basic DB logging: Use MongoDB (via official Scala driver) or Cassandra for lightweight auditing/logs of incoming data.
+
+5. Monitoring & Testing
+
+    Printing/logging: Use logging libraries like Logback or SLF4J for clear operational logs.
+
+    Unit testing: Write simple tests with ScalaTest or Specs2 for ingestion endpoints.
+
+    Health-check endpoint: Implement GET /health to quickly verify service status.
+
+    Manual verification: Test endpoints using tools like curl or Postman.
+

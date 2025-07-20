@@ -2083,3 +2083,739 @@ FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace
 WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
 2025-07-20 20:26:59,018 INFO [cached since 0.005522s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
 2025-07-20 20:26:59,019 INFO COMMIT
+2025-07-20 20:43:45,502 INFO select pg_catalog.version()
+2025-07-20 20:43:45,503 INFO [raw sql] ()
+2025-07-20 20:43:45,507 INFO select current_schema()
+2025-07-20 20:43:45,507 INFO [raw sql] ()
+2025-07-20 20:43:45,509 INFO show standard_conforming_strings
+2025-07-20 20:43:45,509 INFO [raw sql] ()
+2025-07-20 20:43:45,511 INFO BEGIN (implicit)
+2025-07-20 20:43:45,517 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:45,518 INFO [generated in 0.00048s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:45,522 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:45,522 INFO [cached since 0.004895s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:45,523 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:45,524 INFO [cached since 0.006384s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:45,525 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:45,525 INFO [cached since 0.007794s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:45,527 INFO 
+CREATE TABLE audit_logs (
+	id SERIAL NOT NULL, 
+	"user" VARCHAR, 
+	action VARCHAR, 
+	resource VARCHAR, 
+	status VARCHAR, 
+	detail JSON, 
+	timestamp TIMESTAMP WITHOUT TIME ZONE, 
+	PRIMARY KEY (id)
+)
+
+
+2025-07-20 20:43:45,527 INFO [no key 0.00024s] ()
+2025-07-20 20:43:45,535 INFO CREATE INDEX ix_audit_logs_id ON audit_logs (id)
+2025-07-20 20:43:45,536 INFO [no key 0.00024s] ()
+2025-07-20 20:43:45,539 INFO COMMIT
+2025-07-20 20:43:47,239 INFO select pg_catalog.version()
+2025-07-20 20:43:47,239 INFO [raw sql] ()
+2025-07-20 20:43:47,242 INFO select current_schema()
+2025-07-20 20:43:47,242 INFO [raw sql] ()
+2025-07-20 20:43:47,244 INFO show standard_conforming_strings
+2025-07-20 20:43:47,244 INFO [raw sql] ()
+2025-07-20 20:43:47,246 INFO BEGIN (implicit)
+2025-07-20 20:43:47,251 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:47,251 INFO [generated in 0.00034s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:47,254 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:47,254 INFO [cached since 0.003975s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:47,255 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:47,256 INFO [cached since 0.005243s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:47,257 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:47,257 INFO [cached since 0.006449s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:47,258 INFO COMMIT
+2025-07-20 20:43:51,308 INFO select pg_catalog.version()
+2025-07-20 20:43:51,308 INFO [raw sql] ()
+2025-07-20 20:43:51,310 INFO select current_schema()
+2025-07-20 20:43:51,311 INFO [raw sql] ()
+2025-07-20 20:43:51,313 INFO show standard_conforming_strings
+2025-07-20 20:43:51,313 INFO [raw sql] ()
+2025-07-20 20:43:51,314 INFO BEGIN (implicit)
+2025-07-20 20:43:51,319 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:51,319 INFO [generated in 0.00037s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:51,322 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:51,323 INFO [cached since 0.003767s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:51,324 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:51,324 INFO [cached since 0.005105s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:51,325 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:51,325 INFO [cached since 0.006345s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:51,326 INFO COMMIT
+2025-07-20 20:43:52,967 INFO select pg_catalog.version()
+2025-07-20 20:43:52,967 INFO [raw sql] ()
+2025-07-20 20:43:52,971 INFO select current_schema()
+2025-07-20 20:43:52,971 INFO [raw sql] ()
+2025-07-20 20:43:52,973 INFO show standard_conforming_strings
+2025-07-20 20:43:52,974 INFO [raw sql] ()
+2025-07-20 20:43:52,976 INFO BEGIN (implicit)
+2025-07-20 20:43:52,981 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:52,981 INFO [generated in 0.00041s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:52,985 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:52,986 INFO [cached since 0.004745s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:52,987 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:52,987 INFO [cached since 0.005988s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:52,988 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:52,988 INFO [cached since 0.007252s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:52,989 INFO COMMIT
+2025-07-20 20:43:55,582 INFO select pg_catalog.version()
+2025-07-20 20:43:55,582 INFO [raw sql] ()
+2025-07-20 20:43:55,585 INFO select current_schema()
+2025-07-20 20:43:55,585 INFO [raw sql] ()
+2025-07-20 20:43:55,587 INFO show standard_conforming_strings
+2025-07-20 20:43:55,587 INFO [raw sql] ()
+2025-07-20 20:43:55,589 INFO BEGIN (implicit)
+2025-07-20 20:43:55,594 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:55,594 INFO [generated in 0.00033s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:55,597 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:55,597 INFO [cached since 0.003874s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:55,599 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:55,599 INFO [cached since 0.005227s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:55,600 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:43:55,600 INFO [cached since 0.006572s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:43:55,601 INFO COMMIT
+2025-07-20 20:44:08,077 INFO select pg_catalog.version()
+2025-07-20 20:44:08,077 INFO [raw sql] ()
+2025-07-20 20:44:08,080 INFO select current_schema()
+2025-07-20 20:44:08,080 INFO [raw sql] ()
+2025-07-20 20:44:08,082 INFO show standard_conforming_strings
+2025-07-20 20:44:08,082 INFO [raw sql] ()
+2025-07-20 20:44:08,084 INFO BEGIN (implicit)
+2025-07-20 20:44:08,091 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:44:08,091 INFO [generated in 0.00045s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:44:08,094 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:44:08,095 INFO [cached since 0.00412s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:44:08,096 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:44:08,096 INFO [cached since 0.005296s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:44:08,097 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:44:08,097 INFO [cached since 0.00644s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:44:08,098 INFO COMMIT
+2025-07-20 20:44:10,173 INFO select pg_catalog.version()
+2025-07-20 20:44:10,174 INFO [raw sql] ()
+2025-07-20 20:44:10,176 INFO select current_schema()
+2025-07-20 20:44:10,176 INFO [raw sql] ()
+2025-07-20 20:44:10,178 INFO show standard_conforming_strings
+2025-07-20 20:44:10,179 INFO [raw sql] ()
+2025-07-20 20:44:10,180 INFO BEGIN (implicit)
+2025-07-20 20:44:10,185 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:44:10,185 INFO [generated in 0.00034s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:44:10,189 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:44:10,189 INFO [cached since 0.004011s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:44:10,190 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:44:10,190 INFO [cached since 0.005256s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:44:10,191 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:44:10,191 INFO [cached since 0.006482s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:44:10,192 INFO COMMIT
+2025-07-20 20:44:41,377 INFO select pg_catalog.version()
+2025-07-20 20:44:41,377 INFO [raw sql] ()
+2025-07-20 20:44:41,380 INFO select current_schema()
+2025-07-20 20:44:41,380 INFO [raw sql] ()
+2025-07-20 20:44:41,383 INFO show standard_conforming_strings
+2025-07-20 20:44:41,383 INFO [raw sql] ()
+2025-07-20 20:44:41,384 INFO BEGIN (implicit)
+2025-07-20 20:44:41,389 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:44:41,389 INFO [generated in 0.00037s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:44:41,394 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:44:41,394 INFO [cached since 0.005362s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:44:41,396 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:44:41,396 INFO [cached since 0.007128s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:44:41,397 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:44:41,397 INFO [cached since 0.008529s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:44:41,399 INFO COMMIT
+2025-07-20 20:45:08,185 INFO select pg_catalog.version()
+2025-07-20 20:45:08,186 INFO [raw sql] ()
+2025-07-20 20:45:08,189 INFO select current_schema()
+2025-07-20 20:45:08,189 INFO [raw sql] ()
+2025-07-20 20:45:08,191 INFO show standard_conforming_strings
+2025-07-20 20:45:08,191 INFO [raw sql] ()
+2025-07-20 20:45:08,193 INFO BEGIN (implicit)
+2025-07-20 20:45:08,200 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:08,200 INFO [generated in 0.00057s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:08,207 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:08,208 INFO [cached since 0.008177s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:08,209 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:08,210 INFO [cached since 0.01007s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:08,211 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:08,211 INFO [cached since 0.01167s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:08,213 INFO COMMIT
+2025-07-20 20:45:33,409 INFO select pg_catalog.version()
+2025-07-20 20:45:33,409 INFO [raw sql] ()
+2025-07-20 20:45:33,411 INFO select current_schema()
+2025-07-20 20:45:33,412 INFO [raw sql] ()
+2025-07-20 20:45:33,413 INFO show standard_conforming_strings
+2025-07-20 20:45:33,413 INFO [raw sql] ()
+2025-07-20 20:45:33,415 INFO BEGIN (implicit)
+2025-07-20 20:45:33,420 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:33,420 INFO [generated in 0.00034s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:33,424 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:33,424 INFO [cached since 0.004467s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:33,425 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:33,425 INFO [cached since 0.005818s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:33,426 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:33,426 INFO [cached since 0.006977s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:33,428 INFO COMMIT
+2025-07-20 20:45:35,088 INFO select pg_catalog.version()
+2025-07-20 20:45:35,088 INFO [raw sql] ()
+2025-07-20 20:45:35,092 INFO select current_schema()
+2025-07-20 20:45:35,093 INFO [raw sql] ()
+2025-07-20 20:45:35,096 INFO show standard_conforming_strings
+2025-07-20 20:45:35,096 INFO [raw sql] ()
+2025-07-20 20:45:35,098 INFO BEGIN (implicit)
+2025-07-20 20:45:35,106 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:35,107 INFO [generated in 0.00064s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:35,110 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:35,110 INFO [cached since 0.004501s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:35,112 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:35,112 INFO [cached since 0.005971s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:35,113 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:35,113 INFO [cached since 0.007326s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:35,115 INFO COMMIT
+2025-07-20 20:45:37,479 INFO select pg_catalog.version()
+2025-07-20 20:45:37,479 INFO [raw sql] ()
+2025-07-20 20:45:37,482 INFO select current_schema()
+2025-07-20 20:45:37,482 INFO [raw sql] ()
+2025-07-20 20:45:37,484 INFO show standard_conforming_strings
+2025-07-20 20:45:37,484 INFO [raw sql] ()
+2025-07-20 20:45:37,485 INFO BEGIN (implicit)
+2025-07-20 20:45:37,490 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:37,490 INFO [generated in 0.00036s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:37,494 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:37,494 INFO [cached since 0.004326s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:37,495 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:37,495 INFO [cached since 0.005528s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:37,496 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:37,496 INFO [cached since 0.006663s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:37,497 INFO COMMIT
+2025-07-20 20:45:48,712 INFO select pg_catalog.version()
+2025-07-20 20:45:48,712 INFO [raw sql] ()
+2025-07-20 20:45:48,715 INFO select current_schema()
+2025-07-20 20:45:48,715 INFO [raw sql] ()
+2025-07-20 20:45:48,717 INFO show standard_conforming_strings
+2025-07-20 20:45:48,717 INFO [raw sql] ()
+2025-07-20 20:45:48,720 INFO BEGIN (implicit)
+2025-07-20 20:45:48,725 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:48,725 INFO [generated in 0.00036s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:48,730 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:48,730 INFO [cached since 0.005427s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:48,732 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:48,732 INFO [cached since 0.007283s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:48,733 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:48,734 INFO [cached since 0.008621s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:48,735 INFO COMMIT
+2025-07-20 20:45:50,558 INFO select pg_catalog.version()
+2025-07-20 20:45:50,559 INFO [raw sql] ()
+2025-07-20 20:45:50,563 INFO select current_schema()
+2025-07-20 20:45:50,563 INFO [raw sql] ()
+2025-07-20 20:45:50,566 INFO show standard_conforming_strings
+2025-07-20 20:45:50,566 INFO [raw sql] ()
+2025-07-20 20:45:50,569 INFO BEGIN (implicit)
+2025-07-20 20:45:50,576 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:50,576 INFO [generated in 0.00057s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:50,582 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:50,582 INFO [cached since 0.006211s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:50,584 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:50,584 INFO [cached since 0.008144s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:50,586 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:45:50,586 INFO [cached since 0.01019s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:45:50,588 INFO COMMIT
+2025-07-20 20:46:01,688 INFO select pg_catalog.version()
+2025-07-20 20:46:01,688 INFO [raw sql] ()
+2025-07-20 20:46:01,691 INFO select current_schema()
+2025-07-20 20:46:01,691 INFO [raw sql] ()
+2025-07-20 20:46:01,693 INFO show standard_conforming_strings
+2025-07-20 20:46:01,693 INFO [raw sql] ()
+2025-07-20 20:46:01,696 INFO BEGIN (implicit)
+2025-07-20 20:46:01,703 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:01,704 INFO [generated in 0.00051s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:01,710 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:01,710 INFO [cached since 0.007035s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:01,712 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:01,712 INFO [cached since 0.008904s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:01,713 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:01,714 INFO [cached since 0.0107s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:01,716 INFO COMMIT
+2025-07-20 20:46:23,129 INFO select pg_catalog.version()
+2025-07-20 20:46:23,129 INFO [raw sql] ()
+2025-07-20 20:46:23,132 INFO select current_schema()
+2025-07-20 20:46:23,133 INFO [raw sql] ()
+2025-07-20 20:46:23,134 INFO show standard_conforming_strings
+2025-07-20 20:46:23,135 INFO [raw sql] ()
+2025-07-20 20:46:23,136 INFO BEGIN (implicit)
+2025-07-20 20:46:23,141 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:23,142 INFO [generated in 0.00042s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:23,145 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:23,145 INFO [cached since 0.004283s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:23,146 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:23,147 INFO [cached since 0.005473s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:23,148 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:23,148 INFO [cached since 0.00662s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:23,149 INFO COMMIT
+2025-07-20 20:46:34,487 INFO select pg_catalog.version()
+2025-07-20 20:46:34,487 INFO [raw sql] ()
+2025-07-20 20:46:34,490 INFO select current_schema()
+2025-07-20 20:46:34,490 INFO [raw sql] ()
+2025-07-20 20:46:34,492 INFO show standard_conforming_strings
+2025-07-20 20:46:34,492 INFO [raw sql] ()
+2025-07-20 20:46:34,494 INFO BEGIN (implicit)
+2025-07-20 20:46:34,498 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:34,498 INFO [generated in 0.00037s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:34,502 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:34,502 INFO [cached since 0.003791s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:34,503 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:34,503 INFO [cached since 0.005089s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:34,504 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:34,504 INFO [cached since 0.006235s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:34,505 INFO COMMIT
+2025-07-20 20:46:36,275 INFO select pg_catalog.version()
+2025-07-20 20:46:36,276 INFO [raw sql] ()
+2025-07-20 20:46:36,278 INFO select current_schema()
+2025-07-20 20:46:36,279 INFO [raw sql] ()
+2025-07-20 20:46:36,281 INFO show standard_conforming_strings
+2025-07-20 20:46:36,282 INFO [raw sql] ()
+2025-07-20 20:46:36,284 INFO BEGIN (implicit)
+2025-07-20 20:46:36,288 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:36,289 INFO [generated in 0.00035s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:36,293 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:36,294 INFO [cached since 0.005269s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:36,295 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:36,295 INFO [cached since 0.006599s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:36,296 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:36,296 INFO [cached since 0.007844s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:36,298 INFO COMMIT
+2025-07-20 20:46:38,249 INFO select pg_catalog.version()
+2025-07-20 20:46:38,250 INFO [raw sql] ()
+2025-07-20 20:46:38,253 INFO select current_schema()
+2025-07-20 20:46:38,253 INFO [raw sql] ()
+2025-07-20 20:46:38,255 INFO show standard_conforming_strings
+2025-07-20 20:46:38,255 INFO [raw sql] ()
+2025-07-20 20:46:38,257 INFO BEGIN (implicit)
+2025-07-20 20:46:38,265 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:38,265 INFO [generated in 0.00067s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:38,270 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:38,271 INFO [cached since 0.006515s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:38,272 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:38,272 INFO [cached since 0.007849s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:38,273 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:46:38,273 INFO [cached since 0.009212s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:46:38,275 INFO COMMIT
+2025-07-20 20:47:18,523 INFO select pg_catalog.version()
+2025-07-20 20:47:18,523 INFO [raw sql] ()
+2025-07-20 20:47:18,527 INFO select current_schema()
+2025-07-20 20:47:18,527 INFO [raw sql] ()
+2025-07-20 20:47:18,530 INFO show standard_conforming_strings
+2025-07-20 20:47:18,530 INFO [raw sql] ()
+2025-07-20 20:47:18,533 INFO BEGIN (implicit)
+2025-07-20 20:47:18,541 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:18,541 INFO [generated in 0.00071s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:18,547 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:18,547 INFO [cached since 0.006852s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:18,549 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:18,550 INFO [cached since 0.008996s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:18,551 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:18,552 INFO [cached since 0.01111s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:18,554 INFO COMMIT
+2025-07-20 20:47:20,267 INFO select pg_catalog.version()
+2025-07-20 20:47:20,267 INFO [raw sql] ()
+2025-07-20 20:47:20,270 INFO select current_schema()
+2025-07-20 20:47:20,270 INFO [raw sql] ()
+2025-07-20 20:47:20,272 INFO show standard_conforming_strings
+2025-07-20 20:47:20,272 INFO [raw sql] ()
+2025-07-20 20:47:20,273 INFO BEGIN (implicit)
+2025-07-20 20:47:20,278 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:20,278 INFO [generated in 0.00035s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:20,282 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:20,282 INFO [cached since 0.003949s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:20,283 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:20,283 INFO [cached since 0.005178s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:20,284 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:20,284 INFO [cached since 0.006358s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:20,285 INFO COMMIT
+2025-07-20 20:47:21,946 INFO select pg_catalog.version()
+2025-07-20 20:47:21,946 INFO [raw sql] ()
+2025-07-20 20:47:21,949 INFO select current_schema()
+2025-07-20 20:47:21,949 INFO [raw sql] ()
+2025-07-20 20:47:21,951 INFO show standard_conforming_strings
+2025-07-20 20:47:21,951 INFO [raw sql] ()
+2025-07-20 20:47:21,952 INFO BEGIN (implicit)
+2025-07-20 20:47:21,957 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:21,957 INFO [generated in 0.00036s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:21,961 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:21,961 INFO [cached since 0.004149s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:21,962 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:21,962 INFO [cached since 0.005554s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:21,963 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:21,964 INFO [cached since 0.006812s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:21,965 INFO COMMIT
+2025-07-20 20:47:23,919 INFO select pg_catalog.version()
+2025-07-20 20:47:23,919 INFO [raw sql] ()
+2025-07-20 20:47:23,922 INFO select current_schema()
+2025-07-20 20:47:23,922 INFO [raw sql] ()
+2025-07-20 20:47:23,924 INFO show standard_conforming_strings
+2025-07-20 20:47:23,924 INFO [raw sql] ()
+2025-07-20 20:47:23,926 INFO BEGIN (implicit)
+2025-07-20 20:47:23,930 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:23,930 INFO [generated in 0.00035s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:23,934 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:23,934 INFO [cached since 0.004318s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:23,935 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:23,936 INFO [cached since 0.005554s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:23,937 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:23,937 INFO [cached since 0.006758s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:23,938 INFO COMMIT
+2025-07-20 20:47:25,968 INFO select pg_catalog.version()
+2025-07-20 20:47:25,968 INFO [raw sql] ()
+2025-07-20 20:47:25,971 INFO select current_schema()
+2025-07-20 20:47:25,972 INFO [raw sql] ()
+2025-07-20 20:47:25,974 INFO show standard_conforming_strings
+2025-07-20 20:47:25,974 INFO [raw sql] ()
+2025-07-20 20:47:25,977 INFO BEGIN (implicit)
+2025-07-20 20:47:25,982 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:25,982 INFO [generated in 0.00034s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:25,986 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:25,986 INFO [cached since 0.004199s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:25,988 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:25,988 INFO [cached since 0.006021s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:25,989 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:25,990 INFO [cached since 0.007711s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:25,991 INFO COMMIT
+2025-07-20 20:47:29,603 INFO select pg_catalog.version()
+2025-07-20 20:47:29,603 INFO [raw sql] ()
+2025-07-20 20:47:29,606 INFO select current_schema()
+2025-07-20 20:47:29,606 INFO [raw sql] ()
+2025-07-20 20:47:29,608 INFO show standard_conforming_strings
+2025-07-20 20:47:29,608 INFO [raw sql] ()
+2025-07-20 20:47:29,609 INFO BEGIN (implicit)
+2025-07-20 20:47:29,614 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:29,614 INFO [generated in 0.00033s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:29,618 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:29,618 INFO [cached since 0.004108s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:29,619 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:29,619 INFO [cached since 0.005346s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:29,621 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:29,621 INFO [cached since 0.006571s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:29,622 INFO COMMIT
+2025-07-20 20:47:50,026 INFO select pg_catalog.version()
+2025-07-20 20:47:50,026 INFO [raw sql] ()
+2025-07-20 20:47:50,029 INFO select current_schema()
+2025-07-20 20:47:50,029 INFO [raw sql] ()
+2025-07-20 20:47:50,031 INFO show standard_conforming_strings
+2025-07-20 20:47:50,031 INFO [raw sql] ()
+2025-07-20 20:47:50,032 INFO BEGIN (implicit)
+2025-07-20 20:47:50,038 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:50,038 INFO [generated in 0.00045s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:50,042 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:50,043 INFO [cached since 0.00455s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:50,044 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:50,044 INFO [cached since 0.005819s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:50,045 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:50,045 INFO [cached since 0.00709s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:50,046 INFO COMMIT
+2025-07-20 20:47:55,316 INFO select pg_catalog.version()
+2025-07-20 20:47:55,316 INFO [raw sql] ()
+2025-07-20 20:47:55,319 INFO select current_schema()
+2025-07-20 20:47:55,319 INFO [raw sql] ()
+2025-07-20 20:47:55,321 INFO show standard_conforming_strings
+2025-07-20 20:47:55,321 INFO [raw sql] ()
+2025-07-20 20:47:55,323 INFO BEGIN (implicit)
+2025-07-20 20:47:55,328 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:55,328 INFO [generated in 0.00038s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:55,333 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:55,333 INFO [cached since 0.005152s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:55,334 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:55,335 INFO [cached since 0.006816s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:55,336 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:47:55,336 INFO [cached since 0.008353s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:47:55,337 INFO COMMIT
+2025-07-20 20:48:13,058 INFO select pg_catalog.version()
+2025-07-20 20:48:13,058 INFO [raw sql] ()
+2025-07-20 20:48:13,062 INFO select current_schema()
+2025-07-20 20:48:13,062 INFO [raw sql] ()
+2025-07-20 20:48:13,064 INFO show standard_conforming_strings
+2025-07-20 20:48:13,064 INFO [raw sql] ()
+2025-07-20 20:48:13,066 INFO BEGIN (implicit)
+2025-07-20 20:48:13,073 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:48:13,074 INFO [generated in 0.00055s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:48:13,079 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:48:13,079 INFO [cached since 0.005699s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:48:13,080 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:48:13,080 INFO [cached since 0.007167s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:48:13,081 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:48:13,082 INFO [cached since 0.008601s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:48:13,083 INFO COMMIT
+2025-07-20 20:49:01,109 INFO select pg_catalog.version()
+2025-07-20 20:49:01,109 INFO [raw sql] ()
+2025-07-20 20:49:01,112 INFO select current_schema()
+2025-07-20 20:49:01,112 INFO [raw sql] ()
+2025-07-20 20:49:01,114 INFO show standard_conforming_strings
+2025-07-20 20:49:01,114 INFO [raw sql] ()
+2025-07-20 20:49:01,116 INFO BEGIN (implicit)
+2025-07-20 20:49:01,120 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:49:01,120 INFO [generated in 0.00034s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:49:01,124 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:49:01,124 INFO [cached since 0.003909s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:49:01,125 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:49:01,125 INFO [cached since 0.005181s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:49:01,126 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:49:01,127 INFO [cached since 0.006358s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:49:01,128 INFO COMMIT
+2025-07-20 20:49:02,776 INFO select pg_catalog.version()
+2025-07-20 20:49:02,777 INFO [raw sql] ()
+2025-07-20 20:49:02,779 INFO select current_schema()
+2025-07-20 20:49:02,779 INFO [raw sql] ()
+2025-07-20 20:49:02,781 INFO show standard_conforming_strings
+2025-07-20 20:49:02,782 INFO [raw sql] ()
+2025-07-20 20:49:02,783 INFO BEGIN (implicit)
+2025-07-20 20:49:02,788 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:49:02,788 INFO [generated in 0.00046s] ('users', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:49:02,792 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:49:02,792 INFO [cached since 0.003959s ago] ('webhook_events', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:49:02,793 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:49:02,793 INFO [cached since 0.005314s ago] ('access_token_sessions', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:49:02,794 INFO SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-20 20:49:02,794 INFO [cached since 0.006557s ago] ('audit_logs', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-20 20:49:02,796 INFO COMMIT

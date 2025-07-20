@@ -82,6 +82,14 @@ async def create_user(user: UserCreate, db: AsyncSession = Depends(get_db)):
         )
     hashed_password = pwd_context.hash(user.password)
     db_user = User(username=user.username, email=user.email, hashed_password=hashed_password)
+    audit = AuditLog(
+        user=current_user,
+        action="upload",
+        resource=file.filename,
+        status="success",
+        detail={"size": file.size}
+    )
+    db.add(audit)
     db.add(db_user)
     await db.commit()
     await db.refresh(db_user)
@@ -110,6 +118,14 @@ async def login_for_access_token(
         expires_at=expire,
         user_agent=form_data.scopes[0] if form_data.scopes else None  # Or parse from Request
     )
+    audit = AuditLog(
+        user=current_user,
+        action="upload",
+        resource=file.filename,
+        status="success",
+        detail={"size": file.size}
+    )
+    db.add(audit)
     db.add(session)
     await db.commit()
     await db.refresh(session)
@@ -151,10 +167,19 @@ def ingestion(payload: IngestPayload):
 async def upload_file(
     file: UploadFile = File(...),
     storage: str = "minio",
-    current_user: str = Depends(get_current_user)
+    current_user: str = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db)
 ):
     content = await file.read()
     handler = get_handler(storage)
+    audit = AuditLog(
+        user=current_user,
+        action="upload",
+        resource=file.filename,
+        status="success",
+        detail={"size": file.size}
+    )
+    db.add(audit)
     handler.save(file.filename, content)
     return {"filename": file.filename, "stored_id": storage}
 
@@ -179,6 +204,14 @@ async def receive_webhook(client_id: str,
         payload=payload,
         received_at=datetime.utcnow()
     )
+    audit = AuditLog(
+        user=current_user,
+        action="upload",
+        resource=file.filename,
+        status="success",
+        detail={"size": file.size}
+    )
+    db.add(audit)
     db.add(event)
     await db.commit()
     await db.refresh(event)

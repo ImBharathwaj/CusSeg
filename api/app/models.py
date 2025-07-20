@@ -32,8 +32,18 @@ class AccessTokenSession(Base):
     __tablename__ = "access_token_sessions"
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, index=True)
-    token = Column(String, unique=True, index=True)  # Store the actual JWT token string
+    token = Column(String, unique=True, index=True)
     issued_at = Column(DateTime, default=datetime.utcnow)
     expires_at = Column(DateTime)
-    user_agent = Column(String, nullable=True)       # Optionally track device
+    user_agent = Column(String, nullable=True)
     revoked = Column(Boolean, default=False)
+
+class AuditLog(Base):
+    __tablename__ = "audit_logs"
+    id = Column(Integer, primary_key=True, index=True)
+    user = Column(String)
+    action = Column(String)
+    resource = Column(String)
+    status = Column(String)
+    detail = Column(JSON, nullable=True)
+    timestamp = Column(DateTime, default=datetime.utcnow)

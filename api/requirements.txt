@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+minio
+hdfs
+sqlalchemy
+asyncpg
+alembic
+python-dotenv
+jose

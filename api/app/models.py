@@ -8,11 +8,20 @@ Base = declarative_base()
 
 class User(Base):
     __tablename__ = "users"
-
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, unique=True, index=True)
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
+
+class AuditLog(Base):
+    __tablename__ = "audit_logs"
+    id = Column(Integer, primary_key=True, index=True)
+    user = Column(String)
+    action = Column(String)
+    resource = Column(String)
+    status = Column(String)
+    detail = Column(JSON, nullable=True)
+    timestamp = Column(DateTime, default=datetime.utcnow)
 
 class IngestPayload(BaseModel):
     customer_id: str = Field(..., description = "Unique identifier of customer")
@@ -37,13 +46,3 @@ class AccessTokenSession(Base):
     expires_at = Column(DateTime)
     user_agent = Column(String, nullable=True)
     revoked = Column(Boolean, default=False)
-
-class AuditLog(Base):
-    __tablename__ = "audit_logs"
-    id = Column(Integer, primary_key=True, index=True)
-    user = Column(String)
-    action = Column(String)
-    resource = Column(String)
-    status = Column(String)
-    detail = Column(JSON, nullable=True)
-    timestamp = Column(DateTime, default=datetime.utcnow)
